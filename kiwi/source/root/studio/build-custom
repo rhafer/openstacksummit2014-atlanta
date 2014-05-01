@@ -21,3 +21,8 @@ rm /etc/YaST2/licenses/license.txt
 # Auto-start services on boot
 chkconfig ntp on
 chkconfig sshd on
+
+cat <<EOF >>/etc/sudoers
+
+vagrant ALL=(ALL) NOPASSWD: ALL
+EOF
