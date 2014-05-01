@@ -26,3 +26,8 @@ cat <<EOF >>/etc/sudoers
 
 vagrant ALL=(ALL) NOPASSWD: ALL
 EOF
+
+# This avoids annoyingly long timeouts on reverse DNS
+# lookups when connecting via ssh.
+info "Disabling UseDNS in sshd ..."
+sed -i 's/^#\?UseDNS.*/UseDNS no/' /etc/ssh/sshd_config
