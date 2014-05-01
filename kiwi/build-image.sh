@@ -94,12 +94,12 @@ function run_kiwi {
   create_tmpfs
   mkdir -p $BOOT_CACHE_DIR
   echo "** Running kiwi (with $BOOT_CACHE_DIR as boot image cache)"
-  time $kiwi --build source/ -d $TMP_DIR --prebuiltbootimage $BOOT_CACHE_DIR
+  time $kiwi --build source/ -d $TMP_DIR --prebuiltbootimage $BOOT_CACHE_DIR "$@"
   echo "** Appliance created successfully!"
 }
 
 check_kiwi
 trap clean_up SIGINT SIGTERM EXIT
-run_kiwi
+run_kiwi "$@"
 
 exit 0
