@@ -15,3 +15,5 @@
 # read in KIWI utility functions
 . /.kconfig
 
+# Remove EULA on first boot
+rm /etc/YaST2/licenses/license.txt
