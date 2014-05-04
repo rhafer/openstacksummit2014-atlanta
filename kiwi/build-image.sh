@@ -78,6 +78,7 @@ function clean_up {
   rsync -ql $TMP_DIR/initrd-* $BOOT_CACHE_DIR 2>/dev/null || true
 
   umount -l $TMP_DIR || true
+  sleep 3
   rm -rf $TMP_DIR || true
 
   exit $exit_code
