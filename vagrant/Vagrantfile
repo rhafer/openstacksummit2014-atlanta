@@ -28,6 +28,9 @@ Vagrant.configure(vagrantfile_api_version) do |config|
 
     admin.vm.network :forwarded_port, guest: 3000, host: 3000
     admin.vm.network "private_network", ip: "192.168.124.10"
+    # Additional NIC for bonding. The IP address here is just to make vagrant
+    # happy it's not actually used inside the VM
+    admin.vm.network "private_network", ip: "192.168.124.9", auto_config: false
     # admin.vm.network "public_network"
     # admin.ssh.forward_agent = true
 
